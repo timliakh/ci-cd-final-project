@@ -27,7 +27,6 @@ spec:
           rm -rf "${WORKSPACE_SOURCE_PATH}"/..?*
         fi
 ---
----
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -58,7 +57,7 @@ spec:
         pip install pinocchio
         
         echo "=== Running tests ==="
-        nosetests $(params.args)
+        python -m nose $(params.args)
 ---
 apiVersion: tekton.dev/v1beta1
 kind: Task

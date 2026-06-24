@@ -27,6 +27,7 @@ spec:
           rm -rf "${WORKSPACE_SOURCE_PATH}"/..?*
         fi
 ---
+---
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -52,6 +53,9 @@ spec:
         
         echo "=== Installing dependencies from requirements.txt ==="
         pip install -r requirements.txt
+        
+        echo "=== Registering nose plugins ==="
+        pip install pinocchio
         
         echo "=== Running tests ==="
         nosetests $(params.args)
